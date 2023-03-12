@@ -1,0 +1,8 @@
+{
+    "editor.tabCompletion": "on",
+    "diffEditor.codeLens": true,
+    "lldb.displayFormat": "auto",
+    "lldb.showDisassembly": "never",
+    "lldb.dereferencePointers": true,
+    "lldb.consoleMode": "commands"
+}

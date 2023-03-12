@@ -1,0 +1,46 @@
+/// Check a Luhn checksum.
+
+pub fn is_valid(code: &str) -> bool {
+    let vec_char_code = code
+        .chars()
+        .filter(|ch| !ch.is_whitespace())
+        .rev()
+        .collect::<Vec<_>>();
+
+    if vec_char_code.len() <= 1 {
+        return false;
+    }
+
+    // let only_numbers = vec_char_code.clone().into_iter().all(char::is_numeric);
+
+    // if !only_numbers {
+    //     return false;
+    // }
+
+    // let mut num_code = vec_char_code
+    //     .iter()
+    //     .map(|x| *x as i32 - 48)
+    //     .collect::<Vec<_>>();
+
+    for (pos, ch) in vec_char_code.iter_mut().enumerate() {
+        if !char::is_ascii_digit(ch) {
+            return false;
+        }
+        match ch.to_digit(10) {
+            Some(x) if pos % 2 != 0 => {if x > 4 { x * 2 - 9} else { x* 2}};
+            Some(_) => x.unwrap(),
+            None() => return false;
+
+        }
+
+        // if pos % 2 != 0 {
+        //     *ch *= 2;
+
+        //     if *ch > 9 {
+        //         *ch -= 9;
+        //     }
+        // }
+    }
+
+    num_code.iter().sum::<i32>() % 10 == 0
+}
