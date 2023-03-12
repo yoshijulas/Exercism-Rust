@@ -1,15 +1,4 @@
 pub fn annotate(minefield: &[&str]) -> Vec<String> {
-    let surrounding_cells = [
-        (-1, -1),
-        (-1, 0),
-        (-1, 1),
-        (0, -1),
-        (0, 1),
-        (1, -1),
-        (1, 0),
-        (1, 1),
-    ];
-
     let mut vector_input = minefield
         .iter()
         .map(|ch| ch.as_bytes().to_vec())
@@ -25,9 +14,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
         for pos_col in 0..c {
             let mut mine = 0;
             if vector_input[pos_row][pos_col] != b'*' {
-                match surrounding_cells.iter() {
-
-          if pos_row > 0 && vector_input[pos_row - 1][pos_col] == b'*' {
+                if pos_row > 0 && vector_input[pos_row - 1][pos_col] == b'*' {
                     mine += 1;
                 }
                 if pos_col > 0 && vector_input[pos_row][pos_col - 1] == b'*' {
@@ -57,7 +44,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
                 if pos_row > 0 && pos_col + 1 < c && vector_input[pos_row - 1][pos_col + 1] == b'*'
                 {
                     mine += 1;
-                }}
+                }
 
                 if mine > 0 {
                     vector_input[pos_row][pos_col] = mine;
@@ -65,6 +52,11 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
                     vector_input[pos_row][pos_col] = b' ';
                 }
             }
+            // println!("{}", vector_input[pos_row][pos_col]);
+            // println!("{}", vector_input[pos_row - 1][pos_col]);
+            // println!("{}", vector_input[pos_row][pos_col - 1]);
+            // println!("{}", vector_input[pos_row + 1][pos_col]);
+            // println!("{}", vector_input[pos_row][pos_col + 1]);
         }
     }
 
