@@ -1,5 +1,5 @@
 pub fn factors(n: u64) -> Vec<u64> {
-    let calculate_factors = |res| (2..=res).into_iter().find(|i| res % i == 0).unwrap();
+    let calculate_factors = |res| (2..=res).find(|i| res % i == 0).unwrap();
 
     let mut res = n;
     let mut factors = Vec::new();

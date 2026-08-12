@@ -1,5 +1,5 @@
 [package]
-edition = "2021"
+edition = "2024"
 name = "nth_prime"
 version = "2.1.0"
 

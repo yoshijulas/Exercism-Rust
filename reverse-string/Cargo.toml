@@ -5,6 +5,6 @@ unicode-segmentation = "1.10.0"
 grapheme = []
 
 [package]
-edition = "2021"
+edition = "2024"
 name = "reverse_string"
 version = "1.2.0"
